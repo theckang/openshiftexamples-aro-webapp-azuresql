@@ -43,7 +43,10 @@ az cosmosdb mongodb collection create \
     -g $resource \
     -d $database \
     -n $collectionName \
+    --idx '[{\"key\": {\"keys\": [\"score\"]}}]' \
     --shard '_id'
+
+
 
 echo "Your connection strings are:"
 az cosmosdb list-connection-strings -g $resource --name $accountName
